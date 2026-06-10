@@ -2,7 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday 💖</title><style>
+<title>Happy Birthday Sudu 💖</title><style>
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -96,6 +96,11 @@
   }
 }
 
+@keyframes floatUp {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-100vh);}
+}
+
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -103,6 +108,13 @@ body {
   color: #fff;
   text-align: center;
   overflow-x: hidden;
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  animation: floatUp 5s linear infinite;
 }
 
 section {
@@ -147,6 +159,25 @@ p {
   margin: auto;
   line-height: 1.6;
   animation: fadeIn 1s ease-out;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.gallery img {
+  width: 90%;
+  max-width: 300px;
+  border-radius: 15px;
+  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
 }
 
 .btn {
@@ -223,47 +254,73 @@ section:nth-child(3) p {
   }
 }
 
-</style></head><body><section>
-<h1>Happy Birthday [Her Name] 🎂💖</h1>
-<p>Scroll slowly… this is not a normal wish 😌</p>
-</section><section>
-<h1>💌 Message for You</h1>
-<p>
-You are honestly one of the most special people in my life.  
-But let's be real… you're also a little annoying 😏😂  
-Still, I wouldn't trade you for anything.  You make my bad days better,
-my good days even more amazing,
-and my life a lot less boring.
+</style></head><body><!-- 🎶 MUSIC --><audio autoplay loop>
+  <source src="https://getsnap.link/DfcCukKqLnb?share_arg3=copy%20link" type="audio/mpeg">
+</audio><!-- 💖 FLOATING HEARTS --><script>
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 5000);
+}, 500);
+</script><!-- ⏳ COUNTDOWN --><section>
+<h1>⏳ Countdown to Your Day 💖</h1>
+<p id="countdown"></p>
+</section><script>
+const birthday = new Date("June 15, 2026 00:00:00").getTime();
 
-So yeah… I guess I love you a little too much 💖
+setInterval(function() {
+  const now = new Date().getTime();
+  const d = birthday - now;
+
+  const days = Math.floor(d/(1000*60*60*24));
+  const hours = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+  const minutes = Math.floor((d%(1000*60*60))/(1000*60));
+  const seconds = Math.floor((d%(1000*60))/1000);
+
+  document.getElementById("countdown").innerHTML =
+  days+"d "+hours+"h "+minutes+"m "+seconds+"s";
+
+  if (d < 0) {
+    document.getElementById("countdown").innerHTML =
+    "🎉 IT'S YOUR BIRTHDAY SUDU 💖🎂";
+  }
+}, 1000);
+</script><section>
+<h1>Happy Birthday Sudu 🎂💖</h1>
+<p>This is not just a website… it's a piece of my heart 😌</p>
+</section><section>
+<h1>💌 For You</h1>
+<p>
+Sudu… you became my favorite person without even trying.  You annoy me, tease me, and still somehow
+you're one of my favourite 💖
+
+I love every moment with you…
+even the stupid ones 😂
 
 </p>
 </section><section>
-<h1>😂 Truth Section</h1>
-<p>
-You are:  
-✔ Cute  
-✔ Funny  
-✔ Caring  BUT ALSO:
-❌ Dramatic
-❌ Overthinking machine
-❌ Slightly pagal 🤭
-
-Still… my favorite human 🥺💖
-
-</p>
+<h1>📸 Our Memories</h1>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=400&h=400&fit=crop" alt="Memory 1">
+<img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=400&fit=crop" alt="Memory 2">
+<img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&h=400&fit=crop" alt="Memory 3">
+<img src="https://images.unsplash.com/photo-1516524508161-7a46d19cd819?w=400&h=400&fit=crop" alt="Memory 4">
+<img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=400&h=400&fit=crop" alt="Memory 5">
+<img src="https://images.unsplash.com/photo-1530268729831-4ca594d1c68c?w=400&h=400&fit=crop" alt="Memory 6">
+</div>
 </section><section>
-<h1>🎁 Click This</h1>
+<h1>🎁 Final Surprise</h1>
 <div class="btn" onclick="showMessage()">Click Me 😏</div><p id="secret" class="hidden">
-Plot twist…  
-No matter how much I roast you,  
-you're the one I never want to lose.  Happy Birthday my person 💖✨
+No matter what happens…  
+I'm never letting you go 🥺💖  Happy Birthday Sudu 🎂✨
 
 </p>
 </section><script>
-function showMessage() {
-  const secret = document.getElementById("secret");
-  secret.classList.remove("hidden");
+function showMessage(){
+document.getElementById("secret").style.display="block";
 }
 </script></body>
 </html>
